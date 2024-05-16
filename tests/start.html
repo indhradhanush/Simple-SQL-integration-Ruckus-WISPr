@@ -1,0 +1,38 @@
+<html>
+<head><title>Wireless Internet Service</title></head>
+<script type="text/javascript">
+function get_param(name)
+{
+	if (location.href.indexOf("?") >= 0)
+	{
+		var query=location.href.split("?")[1];
+		var params=query.split("&");
+		for (var i = 0; i < params.length; i ++) 
+		{
+			value_pair=params[i].split("=");
+			if (value_pair[0] == name)
+			return
+			unescape(value_pair[1]);
+		}
+	}
+	return "";
+}
+var location_content={"001f41eacbc9":"http://www.ruckusnetworks.com"};
+function redirect()
+{
+	var mac=get_param("mac");
+	if (mac in location_content)
+		window.location.href=location_content[mac];
+	else
+		window.location.href="http://www.ruckusnetworks.com";
+}
+</script>
+<body>
+<br/><center>
+<img src="SPUNSBLJ_400x400.jpg"></img>
+<h2>Ruckus Wireless Portal</h2>
+<br/>
+  <button onclick="window.location.href='http://10.10.10.254:9997/logout'">Logout</button>  
+</center>
+</body>
+</html>
